@@ -201,7 +201,7 @@ func (cmd *authCmd) Flags(fs *flag.FlagSet) *flag.FlagSet {
 	return fs
 }
 
-// Handles the auth command.
+// Run handles the auth command.
 func (cmd *authCmd) Run(args []string) {
 	if err := dockercloud.ConfigureGCE(*cmd.clientId, *cmd.clientSecret, *cmd.scope, *cmd.projectId); err != nil {
 		log.Fatal(err)
@@ -230,7 +230,7 @@ func (cmd *startCmd) Flags(fs *flag.FlagSet) *flag.FlagSet {
 	return fs
 }
 
-// Handles the start command.
+// Run handles the start command.
 func (cmd *startCmd) Run(args []string) {
 	gce, err := dockercloud.NewCloudGCE(*cmd.projectId)
 	if err != nil {
